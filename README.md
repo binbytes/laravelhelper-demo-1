@@ -1,4 +1,4 @@
-# Laravel Rm
+# Laravel Helper Demo
 
 To Setup this laravel application it will require following step.
 - Create .env file

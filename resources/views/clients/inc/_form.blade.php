@@ -89,10 +89,16 @@
             ->for('avatar')
             ->class('mb-0 form-label')
         }}
-        {{ html()->file('avatar')
+        <div class="custom-file">
+            {{ html()->file('avatar')
                 ->accept('image/*')
-                ->class(['form-control', 'is-invalid' => $errors->has('avatar')])
-        }}
+                ->class(['custom-file-input', 'is-invalid' => $errors->has('avatar')])
+            }}
+            {{ html()->label('Avatar')
+                ->for('avatar')
+                ->class('custom-file-label')
+            }}
+        </div>
 
         @if ($errors->has('avatar'))
             <span class="invalid-feedback">

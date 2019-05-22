@@ -90,11 +90,16 @@
             ->for('avatar')
             ->class('mb-0 form-label')
         }}
-        {{ html()->file('avatar')
+        <div class="custom-file">
+            {{ html()->file('avatar')
                 ->accept('image/*')
-                ->class(['form-control', 'is-invalid' => $errors->has('avatar')])
-        }}
-
+                ->class(['custom-file-input', 'is-invalid' => $errors->has('avatar')])
+            }}
+            {{ html()->label('Avatar')
+                ->for('avatar')
+                ->class('custom-file-label')
+            }}
+        </div>
         @if ($errors->has('avatar'))
             <span class="invalid-feedback">
                 <strong>{{ $errors->first('avatar') }}</strong>
@@ -255,16 +260,15 @@
         @endif
     </div>
     <div class="col-4 form-group">
-        <div class="custom-control custom-toggle custom-toggle-sm">
+        <label class="custom-switch">
             {{ html()->checkbox('is_active')
-                    ->id('is_active')
-                    ->class(['custom-control-input', 'is-invalid' => $errors->has('is_active')])
+                ->class(['custom-switch-input', 'is-invalid' => $errors->has('is_active')])
             }}
-            {{ html()->label('Is Active')
-                ->for('is_active')
-                ->class('custom-control-label')
+            <span class="custom-switch-indicator"></span>
+            {{ html()->span('Is Active')
+                ->class('custom-switch-description')
             }}
-        </div>
+        </label>
         @if ($errors->has('is_active'))
             <span class="invalid-feedback">
                 <strong>{{ $errors->first('is_active') }}</strong>
