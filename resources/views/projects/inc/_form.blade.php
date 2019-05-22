@@ -24,7 +24,7 @@
         {{ html()->select('client_id')
                 ->options($clientsforname)
                 ->placeholder('Client Id')
-                ->class(['form-control', 'is-invalid' => $errors->has('client_id')])
+                ->class(['form-control custom-select', 'is-invalid' => $errors->has('client_id')])
         }}
 
         @if ($errors->has('client_id'))

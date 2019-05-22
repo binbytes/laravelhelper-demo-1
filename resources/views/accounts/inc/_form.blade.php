@@ -7,7 +7,7 @@
         {{ html()->select('user_id')
                 ->options($usersforname)
                 ->placeholder('User Id')
-                ->class(['form-control', 'is-invalid' => $errors->has('user_id')])
+                ->class(['form-control custom-select', 'is-invalid' => $errors->has('user_id')])
         }}
 
         @if ($errors->has('user_id'))

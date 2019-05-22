@@ -44,6 +44,7 @@
     <script type="text/javascript">
         $(function() {
             $('.datepicker').datepicker();
+            $('.custom-select').selectize({});
         });
     </script>
     @stack('scripts')
