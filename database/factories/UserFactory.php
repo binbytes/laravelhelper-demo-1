@@ -1,7 +1,6 @@
 <?php
 
 use App\User;
-use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
 /*
@@ -27,4 +26,45 @@ $factory->define(User::class, function (Faker $faker) {
         'dob' => $faker->dateTimeBetween('-30 years', '-15 years')->format('Y-m-d'), // :D
         'base_salary' => $faker->randomNumber(5),
     ];
+});
+
+$factory->define(\App\Client::class, function (Faker $faker) {
+   return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'company_name' => $faker->company,
+        'dob' => $faker->date(),
+        'mobile_no' => $faker->phoneNumber,
+   ];
+});
+
+$factory->define(\App\Project::class, function (Faker $faker) {
+   return [
+        'client_id' => function() {
+            return factory('App\Client')->create()->id;
+        },
+        'title' => $faker->lastName,
+        'started_at' => $faker->date()
+   ];
+});
+
+$factory->define(\App\Account::class, function (Faker $faker) {
+   return [
+        'user_id' => function() {
+            return factory('App\User')->create()->id;
+        },
+        'name' => $faker->name,
+        'bank_name' => $faker->title,
+        'account_number' => $faker->bankAccountNumber,
+        'name_on_account' => $faker->name,
+        'branch_of' => $faker->city,
+        'ifsc_code' => $faker->postcode
+   ];
+});
+
+$factory->define(\App\Department::class, function (Faker $faker) {
+   return [
+        'title' => $faker->title,
+        'remarks' => $faker->text
+   ];
 });

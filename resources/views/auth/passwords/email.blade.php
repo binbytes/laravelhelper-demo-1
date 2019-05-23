@@ -3,8 +3,9 @@
 @section('content')
     <div class="row">
         <div class="col col-login mx-auto">
-            <div class="text-center mb-6">
-                <img src="{{ asset('images/tabler.png') }}" class="h-6" alt="">
+            <div class="d-flex align-items-center justify-content-center mb-5">
+                <img src="{{ asset('images/logo.png') }}" class="h-6" alt="Logo">
+                <span style="font-size: x-large;">Laravel Helper</span>
             </div>
             <form class="card" action="{{ route('password.email') }}" method="post">
                 @csrf

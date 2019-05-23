@@ -45,11 +45,6 @@ class AccountDataTables extends BaseDatatableScope
                 'title' => 'Branch Of'
             ],
             [
-                'data' => 'address',
-                'name' => 'address',
-                'title' => 'Address'
-            ],
-            [
                 'data' => 'ifsc_code',
                 'name' => 'ifsc_code',
                 'title' => 'IFSC Code'

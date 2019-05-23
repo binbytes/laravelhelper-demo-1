@@ -4,6 +4,11 @@
 
 @section('content')
     <div class="row row-cards">
+        <div class="col">
+            <div class="alert alert-primary">This is just an example Dashboard, does not reflect any real data. Please change it as per need.</div>
+        </div>
+    </div>
+    <div class="row row-cards">
         <div class="col-6 col-sm-4 col-lg-2">
             <div class="card">
                 <div class="card-body p-3 text-center">
@@ -126,7 +131,6 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="alert alert-primary">Are you in trouble? <a href="#" class="alert-link">Read our documentation</a> with code samples.</div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="card">
@@ -205,6 +209,7 @@
             </div>
         </div>
     </div>
+
     <div class="row row-cards row-deck">
         <div class="col-lg-6">
             <div class="card card-aside">
