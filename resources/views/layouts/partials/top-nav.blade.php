@@ -2,16 +2,16 @@
     <div class="container">
         <div class="d-flex">
             <a class="header-brand" href="/">
-                <img src="{{ asset('images/tabler.png') }}" class="header-brand-img" alt="tabler logo">
+                <img src="{{ asset('images/logo.png') }}" class="header-brand-img" alt="Logo">
+                <span>Laravel Helper</span>
             </a>
             <div class="d-flex order-lg-2 ml-auto">
                 <div class="dropdown">
                     <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
                         <span class="avatar"></span>
                         <span class="ml-2 d-none d-lg-block">
-                  <span class="text-default">Jane Pearson</span>
-                  <small class="text-muted d-block mt-1">Administrator</small>
-                </span>
+                          <span class="text-default">{{ auth()->user()->name }}</span>
+                        </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                         <a class="dropdown-item" href="{{ route('users.edit', auth()->user()) }}">

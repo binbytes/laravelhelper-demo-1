@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col col-login mx-auto">
             <div class="text-center mb-6">
-                <img src="{{ asset('images/tabler.png') }}" class="h-6" alt="">
+                <img src="{{ asset('images/logo.png') }}" class="h-6" alt="Logo">
             </div>
             <form class="card" action="{{ route('login') }}" method="post">
                 @csrf
@@ -13,7 +13,7 @@
 
                     <div class="form-group">
                         <label class="form-label">Email address</label>
-                        <input type="email" name="email" id="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" name="email" id="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" aria-describedby="emailHelp" placeholder="Enter email">
 
                         @if ($errors->has('email'))
                             <span class="invalid-feedback">

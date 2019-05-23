@@ -51,7 +51,7 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-        if ($request->has('password')) {
+        if ($request->filled('password')) {
             $data['password'] = bcrypt($data['password']);
         } else {
             unset($data['password']);
@@ -101,7 +101,7 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-        if ($request->has('password')) {
+        if ($request->filled('password')) {
             $data['password'] = bcrypt($data['password']);
         } else {
             unset($data['password']);

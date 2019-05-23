@@ -29,4 +29,6 @@ mix.js([
     .copy(['resources/css/app.css',
         'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css',
         'resources/plugins/datatables/datatables.css'
-    ], 'public/css');
+    ], 'public/css')
+    .copy('resources/fonts', 'public/fonts')
+    .copy('resources/images', 'public/images');
