@@ -10,6 +10,8 @@
             <form class="card" action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="card-body p-6">
+                    <p class="font-weight-bold">Demo Account:- demo@gmail.com / secret</p>
+
                     <div class="card-title">Login to your account</div>
 
                     <div class="form-group">
