@@ -44,6 +44,11 @@ class UserDataTables extends BaseDatatableScope
                 'name' => 'slack',
                 'title' => 'Slack'
             ],
+            [
+                'data' => 'type',
+                'name' => 'type',
+                'title' => 'Type',
+            ],
 
         ]);
     }

@@ -260,6 +260,23 @@
         @endif
     </div>
     <div class="col-4 form-group">
+        {{ html()->label('Type')
+            ->for('type')
+            ->class('mb-0 form-label')
+        }}
+        {{ html()->select('type')
+                ->options($type)
+                ->placeholder('Type')
+                ->class(['form-control custom-select', 'is-invalid' => $errors->has('type')])
+        }}
+
+        @if ($errors->has('type'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('type') }}</strong>
+            </span>
+        @endif
+    </div>
+    <div class="col-4 form-group">
         <label class="custom-switch">
             {{ html()->checkbox('is_active')
                 ->class(['custom-switch-input', 'is-invalid' => $errors->has('is_active')])

@@ -10,7 +10,10 @@
                     <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
                         <span class="avatar"></span>
                         <span class="ml-2 d-none d-lg-block">
-                          <span class="text-default">{{ auth()->user()->name }}</span>
+                          <span class="text-default">
+                              {{ auth()->user()->name }}
+                              <i class="fe fe-chevron-down ml-1"></i>
+                          </span>
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">

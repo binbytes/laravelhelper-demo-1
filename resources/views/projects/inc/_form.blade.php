@@ -102,6 +102,23 @@
         @endif
     </div>
     <div class="col-4 form-group">
+        {{ html()->label('Users')
+            ->for('users')
+            ->class('mb-0 form-label')
+        }}
+        {{ html()->multiselect('users[]')
+                ->options($users)
+                ->placeholder('Select Users')
+                ->class(['form-control custom-select', 'is-invalid' => $errors->has('users')])
+        }}
+
+        @if ($errors->has('users'))
+            <span class="invalid-feedback">
+                <strong>{{ $errors->first('users') }}</strong>
+            </span>
+        @endif
+    </div>
+    <div class="col-4 form-group">
         <div class="custom-control custom-checkbox">
             {{ html()->checkbox('is_completed')
                     ->id('is_completed')
@@ -118,7 +135,6 @@
             </span>
         @endif
     </div>
-
 </div>
 
 <div class="d-flex">

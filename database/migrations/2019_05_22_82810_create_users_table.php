@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('remarks', 3000)->nullable();
             $table->string('trello')->nullable();
             $table->string('linkedin')->nullable();
+            $table->string('type')->nullable();
             $table->boolean('is_active')->default(0);
             $table->rememberToken();
             $table->timestamps();

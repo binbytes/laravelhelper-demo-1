@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\Http\DataTables\ProjectDataTables;
 use App\Http\Requests\ProjectRequest;
+use App\User;
 use Gate;
 use App\Client;
 
@@ -41,7 +42,9 @@ class ProjectController extends Controller
     {
         $clientsforname = Client::pluck('name', 'id');
 
-        return view('projects.create', compact('clientsforname'));
+        $users = User::pluck('name', 'id');
+
+        return view('projects.create', compact('clientsforname', 'users'));
     }
 
     /**
@@ -56,7 +59,11 @@ class ProjectController extends Controller
 
         $data['is_completed'] = request()->has('is_completed');
 
-        Project::create($data);
+        $project = Project::create($data);
+
+        if ($request->has('users')) {
+            $project->users()->attach(request('users'));
+        }
 
         if (request()->wantsJson()) {
             return response([], 200);
@@ -86,7 +93,9 @@ class ProjectController extends Controller
     {
         $clientsforname = Client::pluck('name', 'id');
 
-        return view('projects.edit', compact('project', 'clientsforname'));
+        $users = User::pluck('name', 'id');
+
+        return view('projects.edit', compact('project', 'clientsforname', 'users'));
     }
 
     /**
@@ -103,6 +112,8 @@ class ProjectController extends Controller
         $data['is_completed'] = request()->has('is_completed');
 
         $project->fill($data)->save();
+
+        $project->users()->sync(request('users'));
 
         if (request()->wantsJson()) {
             return response([], 200);

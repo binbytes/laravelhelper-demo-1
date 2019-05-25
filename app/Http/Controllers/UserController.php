@@ -38,7 +38,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $type = ['admin' => 'admin', 'employee' => 'employee'];
+
+        return view('users.create', compact('type'));
     }
 
     /**
@@ -59,7 +61,7 @@ class UserController extends Controller
 
         $data['is_active'] = request()->has('is_active');
 
-        User::create($data);
+        $user = User::create($data);
 
         if (request()->wantsJson()) {
             return response([], 200);
@@ -87,7 +89,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $type = ['admin' => 'admin', 'employee' => 'employee'];
+
+        return view('users.edit', compact('user', 'type'));
     }
 
     /**
