@@ -7,7 +7,7 @@ To Setup this laravel application it will require following step.
 - Install node dependency
 - Run npm
 
-#### step-1 Create .env file
+#### Step-1 Create .env file
 Copy .env.example to .env. Set the required environment variables.
 
 #### Step-2 Composer install
@@ -15,7 +15,7 @@ Install otherwise Update composer in your app.
 
 `$ composer install`
 
-#### step-3 Run migration
+#### Step-3 Run migration
 Run migration in your app.
 
 `$ php art migrate`
