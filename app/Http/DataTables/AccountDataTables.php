@@ -15,9 +15,9 @@ class AccountDataTables extends BaseDatatableScope
     {
         $this->setHtml([
                     [
-                'data' => 'user_id',
-                'name' => 'user_id',
-                'title' => 'User Id'
+                'data' => 'user.name',
+                'name' => 'user.name',
+                'title' => 'User'
             ],
             [
                 'data' => 'name',
@@ -59,7 +59,7 @@ class AccountDataTables extends BaseDatatableScope
      */
     public function query()
     {
-        $query = Account::query();
+        $query = Account::with('user');
 
         return datatables()->of($query)
             ->addColumn('actions', function (Account $account) {

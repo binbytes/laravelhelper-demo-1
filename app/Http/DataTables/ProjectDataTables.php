@@ -20,9 +20,9 @@ class ProjectDataTables extends BaseDatatableScope
                 'title' => 'Title'
             ],
             [
-                'data' => 'client_id',
-                'name' => 'client_id',
-                'title' => 'Client Id'
+                'data' => 'client.name',
+                'name' => 'client.name',
+                'title' => 'Client'
             ],
             [
                 'data' => 'started_at',
@@ -44,7 +44,7 @@ class ProjectDataTables extends BaseDatatableScope
      */
     public function query()
     {
-        $query = Project::query();
+        $query = Project::with('client');
 
         return datatables()->of($query)
             ->addColumn('actions', function (Project $project) {
