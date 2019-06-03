@@ -16,15 +16,15 @@
             </span>
         @endif
     </div>
-    <div class="col-4 form-group">
+    <div class="col-12 form-group">
         {{ html()->label('Remarks')
             ->for('remarks')
             ->class('mb-0 form-label')
         }}
         {{ html()->textarea('remarks')
-                ->id('remarks')
-                ->placeholder('Remarks')
+                ->id('summernote')
                 ->class(['form-control', 'is-invalid' => $errors->has('remarks')])
+                ->value(' ')
         }}
 
         @if ($errors->has('remarks'))

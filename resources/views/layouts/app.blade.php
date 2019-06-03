@@ -21,6 +21,7 @@
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/datatables.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
 
 </head>
 <body id="app">
@@ -41,12 +42,22 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
     <script type="text/javascript">
         $(function() {
             $('.datepicker').datepicker({
                 format: 'yyyy/mm/dd',
             });
             $('.custom-select').selectize({});
+            $('#summernote').summernote({
+                height: 150,
+                placeholder: 'write here...',
+                toolbar:[
+                    ['style', ['bold', 'italic', 'underline', 'clear']], 'font', 'fontname', 'fontsize', 'color',
+                    ['para', ['ul', 'ol', 'paragraph']], 'height', 'help'
+                ],
+            });
         });
     </script>
     @stack('scripts')
