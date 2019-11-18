@@ -118,7 +118,7 @@
             </span>
         @endif
     </div>
-    <div class="col-4 form-group">
+    <div class="col-4 form-group my-auto">
         <div class="custom-control custom-checkbox">
             {{ html()->checkbox('is_completed')
                     ->id('is_completed')

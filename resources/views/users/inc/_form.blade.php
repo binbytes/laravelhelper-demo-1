@@ -276,7 +276,7 @@
             </span>
         @endif
     </div>
-    <div class="col-4 form-group">
+    <div class="col-4 form-group my-auto">
         <label class="custom-switch">
             {{ html()->checkbox('is_active')
                 ->class(['custom-switch-input', 'is-invalid' => $errors->has('is_active')])
