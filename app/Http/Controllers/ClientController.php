@@ -51,11 +51,16 @@ class ClientController extends Controller
     {
         $data = $request->all();
 
+        $redirect = $request->input('redirect');
         
-        Client::create($data);
+        $client = Client::create($data);
 
         if (request()->wantsJson()) {
             return response([], 200);
+        }
+
+        if ($redirect) {
+            return redirect(route($redirect)."?client_id=".$client->id);
         }
 
         return redirect('/clients');

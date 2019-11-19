@@ -8,7 +8,7 @@
         <div class="col-lg-12 col-md-12">
             <div class="card card-small mb-3">
                 <div class="card-body">
-                    {{ html()->form('POST', route('users.store'))
+                    {{ html()->form('POST', route('users.store').'?redirect='.request()->get('redirect'))
                         ->acceptsFiles()
                         ->open() }}
 

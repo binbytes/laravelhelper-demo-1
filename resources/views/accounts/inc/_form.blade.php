@@ -1,13 +1,18 @@
 <div class="d-flex flex-wrap">
-        <div class="col-4 form-group">
-        {{ html()->label('User Id')
-            ->for('user_id')
-            ->class('mb-0 form-label')
-        }}
+    <div class="col-4 form-group">
+        <div class="d-flex justify-content-between">
+          {{ html()->label('User Id')
+              ->for('user_id')
+              ->class('mb-0 form-label')
+          }}
+          <a href="{{ route('users.create').'?redirect='. request()->route()->getName() }}"> ( + Add New )</a>
+        </div>
+
         {{ html()->select('user_id')
                 ->options($usersforname)
                 ->placeholder('User Id')
                 ->class(['form-control custom-select', 'is-invalid' => $errors->has('user_id')])
+                ->value(request() ? request()->get('user_id') : '')
         }}
 
         @if ($errors->has('user_id'))

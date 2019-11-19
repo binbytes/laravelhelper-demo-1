@@ -17,14 +17,19 @@
         @endif
     </div>
     <div class="col-4 form-group">
-        {{ html()->label('Client Id')
-            ->for('client_id')
-            ->class('mb-0 form-label')
-        }}
+        <div class="d-flex justify-content-between">
+          {{ html()->label('Client Id')
+              ->for('client_id')
+              ->class('mb-0 form-label')
+          }}
+          <a href="{{ route('clients.create').'?redirect='. request()->route()->getName() }}"> ( + Add New )</a>
+        </div>
+
         {{ html()->select('client_id')
                 ->options($clientsforname)
                 ->placeholder('Client Id')
                 ->class(['form-control custom-select', 'is-invalid' => $errors->has('client_id')])
+                ->value(request() ? request()->get('client_id') : '')
         }}
 
         @if ($errors->has('client_id'))
