@@ -22,7 +22,7 @@
               ->for('client_id')
               ->class('mb-0 form-label')
           }}
-          <a href="{{ route('clients.create').'?redirect='. request()->route()->getName() }}"> ( + Add New )</a>
+          <a href="{{ route('clients.create').'?redirect='. request()->route()->getName().'?client_id' }}"> ( + Add New )</a>
         </div>
 
         {{ html()->select('client_id')

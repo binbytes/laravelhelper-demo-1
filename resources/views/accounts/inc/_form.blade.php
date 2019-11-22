@@ -5,7 +5,7 @@
               ->for('user_id')
               ->class('mb-0 form-label')
           }}
-          <a href="{{ route('users.create').'?redirect='. request()->route()->getName() }}"> ( + Add New )</a>
+          <a href="{{ route('users.create').'?redirect='. request()->route()->getName().'?user_id'}}"> ( + Add New )</a>
         </div>
 
         {{ html()->select('user_id')

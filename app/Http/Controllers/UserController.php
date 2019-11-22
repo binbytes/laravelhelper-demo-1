@@ -61,16 +61,16 @@ class UserController extends Controller
 
         $data['is_active'] = request()->has('is_active');
 
-        $redirect = $request->input('redirect');
-
         $user = User::create($data);
+
+        $redirect = str_replace('.', '/',$request->input('redirect'));
 
         if (request()->wantsJson()) {
             return response([], 200);
         }
 
         if ($redirect) {
-            return redirect(route($redirect)."?user_id=".$user->id);
+            return redirect($redirect."=".$user->id);
         }
 
         return redirect('/users');

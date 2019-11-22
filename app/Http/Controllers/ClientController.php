@@ -50,17 +50,17 @@ class ClientController extends Controller
     public function store(ClientRequest $request)
     {
         $data = $request->all();
-
-        $redirect = $request->input('redirect');
         
         $client = Client::create($data);
+
+        $redirect = str_replace('.', '/',$request->input('redirect'));
 
         if (request()->wantsJson()) {
             return response([], 200);
         }
 
         if ($redirect) {
-            return redirect(route($redirect)."?client_id=".$client->id);
+            return redirect($redirect."=".$client->id);
         }
 
         return redirect('/clients');
