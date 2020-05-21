@@ -31,8 +31,6 @@ class User extends Authenticatable
         'email_verified_at', 'password', 'remember_token',
     ];
 
-    
-
     /**
     * @return \Illuminate\Database\Eloquent\Relations\hasMany
     */
