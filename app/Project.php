@@ -39,9 +39,6 @@ class Project extends Model
         return $this->belongsTo(Client::class, 'client_id');
     }
 
-
-    
-
     /**
     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
     */

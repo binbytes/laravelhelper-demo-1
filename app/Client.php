@@ -34,8 +34,6 @@ class Client extends Authenticatable
         //
     ];
 
-    
-
     /**
     * @return \Illuminate\Database\Eloquent\Relations\hasMany
     */
